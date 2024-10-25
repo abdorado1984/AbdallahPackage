@@ -1,3 +1,18 @@
+Metadata-Version: 2.1
+Name: AbdallahRadwanLib
+Version: 0.8
+Summary: My First Package for Python Projects with PyPI Package - October 2024
+Home-page: https://github.com/abdorado1984/AbdallahPackage
+Author: Abdallah Radwan
+Author-email: AbdallahRadwan2011@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
 # AbdallahPackage
 
 **Install the following packages**
@@ -6,7 +21,7 @@
     pip install tqdm
         or 
     pip install twine setuptools wheel tqdm
-
+    
     python setup.py sdist
     twine upload --repository-url https://upload.pypi.org/legacy/ dist/*
 
@@ -40,6 +55,7 @@
 
 **-----------------------------------------------------------**
 
+
 **Reinstall with --force-reinstall and --no-binary**
     pip install --force-reinstall --no-binary=:all: AbdallahRadwanLib
 
@@ -51,13 +67,5 @@
     https://pypi.org/project/AbdallahRadwanLib/0.8/
 
 
-**-----------------------------------------------------------**
 
-**List of Mibrary file**
-    arUtilityConst
-    arUtilityEnum
-    arUtilitySettings
-    arUtilityGeneral
-    arUtilityEncryption
-    arUtilityFile
-    arUtilityConfig
+    

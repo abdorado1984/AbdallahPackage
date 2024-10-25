@@ -4,7 +4,7 @@ from arUtilityConst import ardbResult , ardbSettings
 from arUtilityEnum import arEnumFetchType
 
 
-class arOracleUtility:
+class arOracle:
     __oraUsername, __oraPassword, __oraHost, __oraServiceName,_ConnectionString = "","","","",""
     __oraPort , __fetchCount = 1521, 10
 

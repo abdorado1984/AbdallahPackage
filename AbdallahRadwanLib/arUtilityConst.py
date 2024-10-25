@@ -22,3 +22,4 @@ class ardbResult:
     rows      :object=None
     rowcount  :int=0
     data      :object=None
+

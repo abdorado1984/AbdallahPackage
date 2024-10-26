@@ -33,12 +33,13 @@
             get my token from my-package-upload-token
 
 #     7. Install the Package Locally**
-            pip install dist/AbdallahRadwanLib-0.8-py3-none-any.whl
+            pip install dist/AbdallahRadwanLib-9.8-py3-none-any.whl
                     or
             pip install AbdallahRadwanLib
                     or
             pip install AbdallahRadwanLib==VersionNumber            
-
+                    or
+            pip install AbdallahRadwanLib --upgrade
 **-----------------------------------------------------------**
 
 **Reinstall with --force-reinstall and --no-binary**

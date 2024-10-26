@@ -64,4 +64,5 @@
     arUtilityConfig
     arUtilityDBOracle
     arUtilityDBSqlAlchemy
+    arUtilityBaseModel
 **-----------------------------------------------------------**    

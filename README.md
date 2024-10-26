@@ -1,4 +1,5 @@
 # AbdallahPackage
+**-----------------------------------------------------------**
 
 **Install the following packages**
     pip install twine
@@ -50,7 +51,6 @@
 **View at**
     https://pypi.org/project/AbdallahRadwanLib/0.8/
 
-
 **-----------------------------------------------------------**
 
 **List of Mibrary file**
@@ -61,3 +61,6 @@
     arUtilityEncryption
     arUtilityFile
     arUtilityConfig
+    arUtilityDBOracle
+    arUtilityDBSqlAlchemy
+**-----------------------------------------------------------**    

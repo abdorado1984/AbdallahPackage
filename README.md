@@ -29,11 +29,11 @@
             twine check dist/*
 
 #     6. upload your package
-            twine upload --repository-url https://upload.pypi.org/legacy/ dist/*            
+            twine upload --repository-url https://upload.pypi.org/legacy/ dist/*
             get my token from my-package-upload-token
 
 #     7. Install the Package Locally**
-            pip install dist/AbdallahRadwanLib-9.8-py3-none-any.whl
+            pip install dist/AbdallahRadwanLib-0.10-py3-none-any.whl
                     or
             pip install AbdallahRadwanLib
                     or

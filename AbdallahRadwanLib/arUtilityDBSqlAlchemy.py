@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from arUtilityConst import ardbSettings
+from AbdallahRadwanLib.arUtilityConst import ardbSettings
 
 """
     1. Create new engine
@@ -11,29 +11,40 @@ from arUtilityConst import ardbSettings
     5. Inherit from new object from session maker
 """
 
-class arSQLAlchemy:    
-    def __init__(self, dbSetting :ardbSettings) -> None:
-        dbType,dbAlias,dbName,dbUser,dbPass,dbHost,dbPort,dbService = dbSetting.dbType.upper(), dbSetting.dbAlias, dbSetting.dbName, dbSetting.dbUser, dbSetting.dbPass, dbSetting.dbHost, dbSetting.dbPort, dbSetting.dbServiceName
-        oracle_db_url = f"oracle+cx_oracle://{dbUser}:{dbPass}@{dbHost}:{dbPort}/{dbService}"
-        sqlite_db_url = f"sqlite:///{dirPath}\\Database\\SQLite\\{dbName}.db" 
-        mongo_db_url  = f"mongodb://{dbHost}:{dbPort}/"        
-        print("Welcome to SqlAlchemy")
-        if (dbType == "ORACLE"):
-            default_db_url = oracle_db_url
-        elif (dbType == "SQLITE"):
-            default_db_url = sqlite_db_url    
-        elif (dbType == "MONGODB"):
-            default_db_url = mongo_db_url        
+# Database configuration
+Base = declarative_base()
+
+class arSQLAlchemyManager:
+    __instance = None
+    @staticmethod
+    def CreateInstance(dbSetting :ardbSettings):
+        if (arSQLAlchemyManager.__instance == None):
+            arSQLAlchemyManager.__instance = arSQLAlchemyManager(dbSetting)
+        return arSQLAlchemyManager.__instance
+    
+    def __init__(self, dbSetting :ardbSettings):
+        """Initialize the database manager with the provided database URL."""        
+        EnableEcho,dbType = dbSetting.EnableEcho, dbSetting.dbType.upper()
+        if (dbType == "ORACLE"):        
+            database_url = f"oracle+cx_oracle://{dbSetting.dbUser}:{dbSetting.dbPass}@{dbSetting.dbHost}:{dbSetting.dbPort}/{dbSetting.dbService}"
+        elif (dbType == "SQLITE"):        
+            database_url = f"sqlite:///{dbSetting.dbPath}\\Database\\SQLite\\{dbSetting.dbName}.db"
+        elif (dbType == "MONGODB"):        
+            database_url = f"mongodb://{dbSetting.dbHost}:{dbSetting.dbPort}/"          
         else:
-            default_db_url = ""        
-        print(f"Database [{dbType}] => Alias [{dbAlias}] => URL [{default_db_url}]")
+            database_url = ""  
+        print(f"Welcome to SqlAlchemy : Database [{dbType}] => Alias [{dbSetting.dbAlias}] => URL [{database_url}]")
         # إعداد الاتصال بقاعدة البيانات
-        # EnableEcho = True
-        EnableEcho = False
-        engine = create_engine(default_db_url , echo=EnableEcho)
-        Base = declarative_base()
+        self.engine = create_engine(database_url, echo=EnableEcho)
+        self.SessionLocal = sessionmaker(bind=self.engine)
+        self.create_tables()  # Create tables if they don't exist  
+
+    def create_tables(self):
+        """Create the database tables."""
         # إنشاء الجداول
-        Base.metadata.create_all(engine)
+        Base.metadata.create_all(bind=self.engine)
+
+    def get_session(self):
         # إنشاء جلسة للتفاعل مع قاعدة البيانات
-        SessionMaker = sessionmaker(bind=engine)
-        session = SessionMaker()
+        """Return a new session."""
+        return self.SessionLocal()

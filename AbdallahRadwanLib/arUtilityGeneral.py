@@ -1,6 +1,6 @@
 from datetime import datetime , timedelta
-from arUtilityEncryption import arEncryption, arEnumEncryptionType
-from arUtilityConst import jwt_ExpireHours
+from AbdallahRadwanLib.arUtilityEncryption import arEncryption, arEnumEncryptionType
+from AbdallahRadwanLib.arUtilityConst import jwt_ExpireHours
 from typing import Tuple
 from uuid import uuid4
 

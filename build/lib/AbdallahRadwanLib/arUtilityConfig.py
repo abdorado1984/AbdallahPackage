@@ -1,7 +1,7 @@
-from arUtilityFile import arFile
-from arUtilityEnum import arEnumConfigType
-from arUtilityConst import ardbResult , ardbSettings
-from arUtilitySettings import BasicSettings , VariableSettings
+from AbdallahRadwanLib.arUtilityFile import arFile
+from AbdallahRadwanLib.arUtilityEnum import arEnumConfigType
+from AbdallahRadwanLib.arUtilityConst import ardbResult , ardbSettings
+from AbdallahRadwanLib.arUtilitySettings import BasicSettings , VariableSettings
 
 class arConfig:      
     __ConfigFileName, __ConfigFilePath = "Settings.json" , ""     

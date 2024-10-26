@@ -4,15 +4,17 @@ jwt_Algorithm = "HS256"
 jwt_ExpireHours = 24
 
 class ardbSettings:
-    dbType :str = "" 
-    dbAlias :str = "" 
-    dbName :str = ""
-    dbUser :str = ""
-    dbPass :str = ""
-    dbHost :str = ""
-    dbServiceName :str = ""
-    dbPort :int = 0
+    dbType       :str = "" 
+    dbAlias      :str = "" 
+    dbName       :str = ""
+    dbUser       :str = ""
+    dbPass       :str = ""
+    dbHost       :str = ""
+    dbService    :str = ""
+    dbPath       :str = ""
+    dbPort       :int = 0
     dbFetchCount :int = 0
+    EnableEcho   :bool = False
 
 class ardbResult:
     connected :bool=False

@@ -1,7 +1,7 @@
 from typing import Tuple
 import cx_Oracle
-from arUtilityConst import ardbResult , ardbSettings
-from arUtilityEnum import arEnumFetchType
+from AbdallahRadwanLib.arUtilityConst import ardbResult , ardbSettings
+from AbdallahRadwanLib.arUtilityEnum import arEnumFetchType
 
 
 class arOracle:

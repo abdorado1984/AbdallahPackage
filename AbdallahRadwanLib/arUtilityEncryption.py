@@ -3,8 +3,8 @@ from cryptography.fernet import Fernet
 from typing import Tuple
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
-from arUtilityEnum import arEnumEncryptionType
-from arUtilityConst import jwt_SecretKey, jwt_Algorithm
+from AbdallahRadwanLib.arUtilityEnum import arEnumEncryptionType
+from AbdallahRadwanLib.arUtilityConst import jwt_SecretKey, jwt_Algorithm
 
 class arEncryption:
     def GenerateToken(self, payload :dict) -> str:

@@ -86,7 +86,7 @@ class arConfig:
                         self.__DbSettings.dbPass        = connStr.get("password")
                         self.__DbSettings.dbHost        = connStr.get("host")                        
                         self.__DbSettings.dbPort        = connStr.get("port")
-                        self.__DbSettings.dbServiceName = connStr.get("serviceName")
+                        self.__DbSettings.dbService 	= connStr.get("service")
                         break
             except Exception as e:
                 errorMsg = f"__SetDbSettings.Exception : {e}"

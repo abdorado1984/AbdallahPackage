@@ -1,5 +1,6 @@
 from pydantic import BaseModel , Field
 from pydantic.json_schema import SkipJsonSchema
+from typing import Optional
 
 class OutputModel(BaseModel):
     isSuccess :bool = False
@@ -26,5 +27,6 @@ class TokenModel(BaseModel):
     expires_in :str
 
 class TestModel(BaseModel):    
-    item :str
-    price :int
+    name        :str  # Required field
+    description :Optional[str] = None  # Optional field
+    price       :Optional[float] = 0.0  # Optional with default value

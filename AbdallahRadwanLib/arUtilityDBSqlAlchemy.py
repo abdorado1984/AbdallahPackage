@@ -37,7 +37,7 @@ class arSQLAlchemyManager:
         # إعداد الاتصال بقاعدة البيانات
         self.engine = create_engine(database_url, echo=EnableEcho)
         self.Base = declarative_base()
-        self.SessionLocal = sessionmaker(bind=self.engine)
+        self.SessionMaker = sessionmaker(bind=self.engine)        
         self.create_tables()  # Create tables if they don't exist  
 
     def get_base(self):
@@ -50,5 +50,5 @@ class arSQLAlchemyManager:
 
     def get_session(self):
         # إنشاء جلسة للتفاعل مع قاعدة البيانات
-        """Return a new session."""
-        return self.SessionLocal()
+        """Return a new session."""        
+        return self.SessionMaker()

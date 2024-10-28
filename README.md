@@ -1,4 +1,7 @@
 # AbdallahPackage
+
+#  Upgrade pip
+        python.exe -m pip install --upgrade pip
 **-----------------------------------------------------------**
 
 **Install the following packages**
@@ -16,6 +19,7 @@
 #     1. Uninstall package
             pip uninstall AbdallahRadwanLib
 #     2. Update the Version Number in setup info
+            setup.py => increase version No
 #     3. clear setup info
             rm -rf dist/ build/ *.egg-info
     
@@ -28,12 +32,15 @@
 #     5. Check dist [optional]
             twine check dist/*
 
-#     6. upload your package
+#     6. Copy Files
+            Xcopy D:\MyWork\Abdallah\Python\AbdallahPackage\AbdallahRadwanLib C:\Users\abdullah\appdata\local\programs\python\python312\lib\site-packages\AbdallahRadwanLib /E /H /C /I
+
+#     7. upload your package
             twine upload --repository-url https://upload.pypi.org/legacy/ dist/*
             get my token from my-package-upload-token
 
-#     7. Install the Package Locally**
-            pip install dist/AbdallahRadwanLib-0.10-py3-none-any.whl
+#     8. Install the Package**
+            pip install dist/AbdallahRadwanLib-1.1-py3-none-any.whl
                     or
             pip install AbdallahRadwanLib
                     or

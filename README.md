@@ -35,6 +35,9 @@
 #     6. Copy Files
             Xcopy D:\MyWork\Abdallah\Python\AbdallahPackage\AbdallahRadwanLib C:\Users\abdullah\appdata\local\programs\python\python312\lib\site-packages\AbdallahRadwanLib /E /H /C /I
 
+            Xcopy D:\MyWork\Git\AbdallahPackage\AbdallahRadwanLib
+            C:\Users\Abdallah-Lat5540\appdata\local\programs\python\python312\lib\site-packages\AbdallahRadwanLib /E /H /C /I
+
 #     7. upload your package
             twine upload --repository-url https://upload.pypi.org/legacy/ dist/*
             get my token from my-package-upload-token

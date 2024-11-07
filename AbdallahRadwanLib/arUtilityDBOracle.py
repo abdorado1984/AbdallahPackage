@@ -12,14 +12,14 @@ class arOracle:
         self.__oraUsername    = dbSettings.dbUser
         self.__oraPassword    = dbSettings.dbPass
         self.__oraHost        = dbSettings.dbHost
-        self.__oraServiceName = dbSettings.dbServiceName
+        self.__oraService     = dbSettings.dbService
         self.__oraPort        = dbSettings.dbPort
         self.__fetchCount     = dbSettings.dbFetchCount        
         self.__SetConnectionString()
         # print(f"Connection String : {self.__GetConnectionString()}\n")
 
     def __SetConnectionString(self) -> None:      
-        self._ConnectionString = f"{self.__oraUsername}/{self.__oraPassword}@{self.__oraHost}:{self.__oraPort}/{self.__oraServiceName}"
+        self._ConnectionString = f"{self.__oraUsername}/{self.__oraPassword}@{self.__oraHost}:{self.__oraPort}/{self.__oraService}"
 
     def __GetConnectionString(self) -> str:                
         return self._ConnectionString
@@ -56,13 +56,15 @@ class arOracle:
     def fetchData(self, AsSQL :str, AtpValue :tuple, AoFetchType :arEnumFetchType = arEnumFetchType.ftMany) -> ardbResult:
         dbResult = ardbResult()
         try:            
+            if type(AtpValue) == str:                
+                AtpValue = (AtpValue,) 
             dbResult.message = "Open database connection"
             LoConn , dbResult.connected = self.openConn()
             if (dbResult.connected):
                 dbResult.message = "Open cursor"
                 LoCursor = LoConn.cursor()                
                 dbResult.message = "Execute Data"
-                LoCursor.execute(AsSQL,[AtpValue])
+                LoCursor.execute(AsSQL,AtpValue)
                 dbResult.message = "Get list of column name"
                 dbResult.columns = self.__getColumns(LoCursor)
                 dbResult.message = "Fetch data ..."
@@ -129,7 +131,7 @@ class arOracle:
             self.closeConn(LoConn)        
         return dbResult
 
-    def CallFun(self, AsName :str, AoParams :list, AoType :type) -> ardbResult:
+    def CallFun(self, AsName :str, AoParams :list, AoType :type) -> ardbResult:        
         dbResult = ardbResult()
         try:            
             dbResult.message = "Open database connection"

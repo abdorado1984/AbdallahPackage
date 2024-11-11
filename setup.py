@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='AbdallahRadwanLib',
-    version='1.3',    
+    version='1.4',    
     description='My First Package for Python Projects with PyPI Package - October 2024',  
     # package_dir={"": "app"},
     # packages=find_packages(where="app"),

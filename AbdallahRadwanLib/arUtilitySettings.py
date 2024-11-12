@@ -2,6 +2,11 @@ BasicSettings = {
                     "Version" : "1.0.0.0",    
                     "Language" : "Python",
                     "Framework" : "FastAPI",
+                    "enviroments": [
+                        "dev",
+                        "test",
+                        "prod"
+                    ],                    
                     "connectionStrings": [
                                             {
                                                 "type": "Oracle",
@@ -67,7 +72,8 @@ BasicSettings = {
                 }
 
 VariableSettings = {
-                        "DefaultConnectionString" : "Abdallah_W",
+                        "DefaultEnviroment": "dev",
+                        "DefaultConnectionString" : "Abdallah_W",                        
                         "ServerIP" : "127.0.0.1",
                         "ServerPort" : 15500,
                         "FetchCount" : 10

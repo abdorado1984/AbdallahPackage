@@ -114,3 +114,5 @@ class arConfig:
     @classmethod
     def ClassMethodReturnInstance(cls):
         return cls()        
+
+config = arConfig.CreateInstance()

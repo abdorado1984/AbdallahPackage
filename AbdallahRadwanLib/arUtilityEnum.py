@@ -2,7 +2,8 @@ from enum import Enum
 
 class arEnumConfigType(Enum):
     connStrs   = "connectionStrings"
-    defConnStr = "DefaultConnectionString"
+    defEnv     = "DefaultEnviroment"
+    defConnStr = "DefaultConnectionString"    
     serverIP   = "ServerIP"
     serverPort = "ServerPort"
     fetchCount = "FetchCount"

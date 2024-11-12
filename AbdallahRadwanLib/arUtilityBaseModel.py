@@ -1,5 +1,5 @@
-#from pydantic.json_schema import SkipJsonSchema
-from pydantic import BaseModel #, Field
+from pydantic.json_schema import SkipJsonSchema
+from pydantic import BaseModel , Field
 from typing import Optional
 from datetime import datetime
 
@@ -26,6 +26,7 @@ class TokenModel(BaseModel):
     token_type :str = "Bearer"
     created_at :datetime
     expires_in :datetime 
+    guid  :SkipJsonSchema[str] = Field(False,exclude=True) # not display in swagger
 
 class TestModel(BaseModel):    
     name        :str  # Required field

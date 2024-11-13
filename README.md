@@ -62,6 +62,10 @@ pip install twine setuptools wheel tqdm
                     or
             pip install dist/AbdallahRadwanLib-1.1-py3-none-any.whl
 
+# 9. clear setup info
+
+            rm -rf dist/ build/ *.egg-info
+
 **-----------------------------------------------------------**
 
 **Reinstall with --force-reinstall and --no-binary**
@@ -86,5 +90,4 @@ arUtilityFile
 arUtilityConfig
 arUtilityDBOracle
 arUtilityDBSqlAlchemy
-arUtilityBaseModel
 **-----------------------------------------------------------**

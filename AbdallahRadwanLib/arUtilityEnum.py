@@ -17,4 +17,13 @@ class arEnumEncryptionType(Enum):
 class arEnumFetchType(Enum):
     ftOne  = 1
     ftMany = 2
-    ftAll  = 3        
+    ftAll  = 3
+
+class arEnumHealthTransactionType(Enum):
+    httLaboratory   = "L"
+    httRadiology    = "R"
+    httBloodBank    = "B"
+    httpTreatment   = "T" 
+    httEndoscopy    = "E"   
+    httCTG          = "C"
+    httRadiotherapy = "TH"        

@@ -12,17 +12,16 @@ class arEncryption:
             token = jwt.encode(payload , jwt_SecretKey, jwt_Algorithm)
         except Exception as e:
             token = ""
-            errorMessage = f"Error : {e}"
+            error = e
         return token   
 
-    def ReadToken(self, token :str) -> dict:
-        payload = {}
+    def ReadToken(self, token :str):
+        payload,error = None,""
         try:                           
             payload = jwt.decode(token , jwt_SecretKey, jwt_Algorithm, options={"verify_aud": False})
         except Exception as e:
-            payload = {}
-            errorMessage = f"Exception : {e}"
-        return payload   
+            payload,error = None,e
+        return payload,error   
 
     def __EncHash(self,text :str) -> str:        
         try:

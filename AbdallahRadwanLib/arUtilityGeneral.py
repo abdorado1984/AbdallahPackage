@@ -53,3 +53,11 @@ class arUtility:
         if (removeDash):
             value = value.replace("-","")
         return value
+    
+    @staticmethod
+    def getDateFormat(dt :datetime) -> str:
+        return dt.strftime("%d/%m/%Y")
+    
+    @staticmethod
+    def getDateTimeFormat(dt :datetime) -> str:
+        return dt.strftime("%d/%m/%Y %I:%M:%S %p")

@@ -71,7 +71,8 @@ class arConfig:
             print(errorMsg)
 
     def __SetDbSettings(self) -> None:        
-        self.__DbSettings = ardbSettings()       
+        self.__DbSettings = ardbSettings()
+        self.__DbSettings.EnableEcho = self.GetConfigValue(arEnumConfigType.enableEcho)        
         self.__DbSettings.dbAlias = self.GetConfigValue(arEnumConfigType.defConnStr)
         self.__DbSettings.dbFetchCount =  self.GetConfigValue(arEnumConfigType.fetchCount)        
         if (len(self.__DbSettings.dbAlias) > 0):            

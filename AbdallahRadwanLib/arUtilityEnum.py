@@ -4,6 +4,7 @@ class arEnumConfigType(Enum):
     connStrs   = "connectionStrings"
     defEnv     = "DefaultEnviroment"
     defConnStr = "DefaultConnectionString"    
+    enableEcho = "EnableEcho"
     serverIP   = "ServerIP"
     serverPort = "ServerPort"
     fetchCount = "FetchCount"

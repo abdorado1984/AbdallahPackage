@@ -24,7 +24,7 @@ class arSQLAlchemyManager:
     
     def __init__(self, dbSetting :ardbSettings):
         """Initialize the database manager with the provided database URL."""        
-        EnableEcho,dbType = dbSetting.EnableEcho, dbSetting.dbType.upper()
+        enableEcho,dbType = dbSetting.EnableEcho, dbSetting.dbType.upper()
         if (dbType == "ORACLE"):        
             database_url = f"oracle+cx_oracle://{dbSetting.dbUser}:{dbSetting.dbPass}@{dbSetting.dbHost}:{dbSetting.dbPort}/{dbSetting.dbService}"
         elif (dbType == "SQLITE"):        
@@ -33,9 +33,9 @@ class arSQLAlchemyManager:
             database_url = f"mongodb://{dbSetting.dbHost}:{dbSetting.dbPort}/"          
         else:
             database_url = ""  
-        print(f"Welcome to SqlAlchemy : Database [{dbType}] => Alias [{dbSetting.dbAlias}] => URL [{database_url}]")
+        print(f"Welcome to SqlAlchemy : Database [{dbType}] => Alias [{dbSetting.dbAlias}] => Ehco [{enableEcho}] => URL [{database_url}]")
         # إعداد الاتصال بقاعدة البيانات
-        self.engine = create_engine(database_url, echo=EnableEcho)
+        self.engine = create_engine(database_url, echo=enableEcho)
         self.Base = declarative_base()
         self.SessionMaker = sessionmaker(bind=self.engine)        
         self.create_tables()  # Create tables if they don't exist  

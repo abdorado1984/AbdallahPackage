@@ -52,7 +52,7 @@ class arUtility:
         value = str(uuid4())
         if (removeDash):
             value = value.replace("-","")
-        return value
+        return value    
     
     @staticmethod
     def getDateFormat(dt :datetime) -> str:

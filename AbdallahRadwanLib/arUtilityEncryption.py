@@ -3,6 +3,8 @@ from cryptography.fernet import Fernet
 from typing import Tuple
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
+import os
+import base64
 from AbdallahRadwanLib.arUtilityEnum import arEnumEncryptionType
 from AbdallahRadwanLib.arUtilityConst import jwt_SecretKey, jwt_Algorithm
 
@@ -93,4 +95,24 @@ class arEncryption:
                 value = self.__DecFernet(text, key)
             case arEnumEncryptionType.etAES:
                 value = self.__DecAES(text, key, tag, nonce)                    
+        return value
+    
+    def encodeBase64(self,file_path :str) -> str:
+        value = None
+        try:
+            is_exist = os.path.exists(file_path)
+            if (is_exist):
+                with open(file_path, "rb") as image_file:
+                    encoded_string = base64.b64encode(image_file.read())
+                    value = encoded_string.decode("utf-8")            
+        except Exception as e:
+            value = None
+        return value
+
+    def decodeBase64(self,text :str) -> str:
+        value = None
+        try:
+            value = base64.b64decode(text)
+        except Exception as e:
+            value = None
         return value
